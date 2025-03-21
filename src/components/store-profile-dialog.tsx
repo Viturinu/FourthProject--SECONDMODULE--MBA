@@ -52,11 +52,11 @@ export function StoreProfileDialog() {
   })
 
   const { mutateAsync: updateProfileFn } = useMutation({
-    mutationFn: updateProfile,
-    onMutate({ description, name }) {
-      const { cached } = updateManagedRestaurantCache({ description, name })
+    mutationFn: updateProfile, //essa função vem das requisições de API dentro da pasta de requisições da API
+    onMutate({ description, name }) { //assim que chama a função mutateAsync: updateProfileFn, a gente chama a função updateManagedRestaurantCache() (os parametros vem do description e name passados na função updateProfile)
+      const { cached } = updateManagedRestaurantCache({ description, name }) //já a função updateManagedRestaurantCache serve para atualizar a pagina, pois estaremos atualizando o estado HTTP
 
-      return { previousProfile: cached }
+      return { previousProfile: cached } //tudo que é retornado aqui vai pro contexto, que é resgatado pra condicional no onError(_, __, context) (claro que apenas em caso de erro)
     },
     onError(_, __, context) {
       if (context?.previousProfile) {

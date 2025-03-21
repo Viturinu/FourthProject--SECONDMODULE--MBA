@@ -9,7 +9,7 @@ interface OrderStatusProps {
   status: OrderStatus
 }
 
-const orderStatusMap: Record<OrderStatus, string> = {
+const orderStatusMap: Record<OrderStatus, string> = { //forma de fazer equivalencias de chave e valor, mas tipando ()
   pending: 'Pendente',
   canceled: 'Cancelado',
   delivered: 'Entregue',

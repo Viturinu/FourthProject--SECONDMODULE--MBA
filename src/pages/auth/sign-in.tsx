@@ -17,7 +17,7 @@ const signInForm = z.object({
 type SignInForm = z.infer<typeof signInForm>
 
 export function SignIn() {
-  const [searchParams] = useSearchParams()
+  const [searchParams] = useSearchParams(); //aqui está assim para, por ventura, se o usuario fizer o cadastro, no toast a gente envia pra essa tela já com o email cadastrado, então ele recupera aqui e atualiza no ato.
 
   const {
     register,

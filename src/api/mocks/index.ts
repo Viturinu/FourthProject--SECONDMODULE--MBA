@@ -40,8 +40,8 @@ export const worker = setupWorker(
   dispatchOrderMock,
 )
 
-export async function enableMSW() {
-  if (env.MODE !== 'test') {
+export async function enableMSW() { //chamado lá no main.tsx
+  if (env.MODE !== 'test') { //se for diferente de teste, só retorna, caso contrário ele aciona o worker 
     return
   }
 
